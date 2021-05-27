@@ -1,0 +1,23 @@
+{
+  "name": "six-admin-example",
+  "version": "0.1.0",
+  "description": "Simple example consuming six admin core package",
+  "author": "Gaëtan <gaetan@moveo-webdesign.com>",
+  "homepage": "",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "six-admin-core": "0.1.0"
+  },
+  "devDependencies": {
+    "vite": "^2.0.0-beta.12",
+    "@vitejs/plugin-react-refresh": "^1.1.1"
+  }
+}

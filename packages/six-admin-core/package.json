@@ -1,0 +1,16 @@
+{
+  "name": "six-admin-core",
+  "version": "0.1.0",
+  "main": "index.js",
+  "module": "src/index.js",
+  "description": "Six admin core required modules",
+  "author": "Gaëtan <gaetan@moveo-webdesign.com>",
+  "homepage": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "react-tiny-slider": "^1.0.6"
+  }
+}

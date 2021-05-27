@@ -1,0 +1,21 @@
+{
+  "name": "vue-vite-monorepo",
+  "version": "1.0.0",
+  "description": "Vue JS Monorepo with Lerna and Vite",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test:ci",
+    "clean": "lerna clean",
+    "clean:build": "lerna exec -- rimraf lib",
+    "release": "lerna publish",
+    "ls": "lerna ls"
+  },
+  "author": {
+    "name": "Six Design",
+    "email": "contact@6-design.com",
+    "url": "https://www.6-design.com"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
