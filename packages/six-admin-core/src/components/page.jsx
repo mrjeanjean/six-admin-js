@@ -14,7 +14,7 @@ const action = (id) => async dispatch => {
 }
 
 export const PageComponent = ({id})=>{
-    const {page, pristine} = useSelector(state => state.editedPage);
+    const {page} = useSelector(state => state.editedPage);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -37,8 +37,6 @@ export const PageComponent = ({id})=>{
         <div>
             <h1>{page.name}</h1>
             <Sections sections={page.sections}/>
-            <pre>{JSON.stringify(pristine)}</pre>
-            <pre>{JSON.stringify(page, null, 2)}</pre>
         </div>
 
     )

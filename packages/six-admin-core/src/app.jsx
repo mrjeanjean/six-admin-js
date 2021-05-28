@@ -3,7 +3,7 @@ import './styles/core.css';
 import React from 'react';
 import {Provider,} from 'react-redux';
 import Store from "./store/store";
-import {ErrorBoundary} from "./helpers/error-boundary";
+import {ErrorBoundary} from "./error-boundary";
 import {combineReducers} from "redux";
 import {HashRouter as Router} from "react-router-dom";
 import {initialState} from "./store/initialState";

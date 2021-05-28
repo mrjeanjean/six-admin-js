@@ -8,6 +8,12 @@
 }
 
 /** LAYOUT */
+.six-admin *,
+.six-admin *:before,
+.six-admin *:after{
+    box-sizing: border-box;
+}
+
 .six-admin {
     font-family: var(--font-family);
     display: flex;
@@ -21,7 +27,16 @@
     text-decoration: none;
 }
 
-.six-admin > * {
+.six-admin button,
+.six-admin input,
+.six-admin textarea{
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.six-admin input:focus,
+.six-admin textarea:focus{
+    outline-color: var(--color-theme);
 }
 
 .main-layout {
@@ -74,4 +89,21 @@
     width: 30px;
     background-color: var(--color-border);
     height: 100%;
+}
+
+/** SECTIONS */
+.page-section{
+    margin-bottom: 1rem;
+}
+
+.page-section input,
+.page-section textarea{
+    border: 2px var(--color-border) solid;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+}
+.page-section textarea{
+    min-height: 10rem;
+    resize: none;
 }

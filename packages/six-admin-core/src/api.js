@@ -8,7 +8,7 @@ class Api{
                     sections: [
                         {
                             id: "section2",
-                            type: "title",
+                            type: "heading",
                             content: "Mon titre"
                         },
                         {
