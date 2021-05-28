@@ -1,6 +1,17 @@
 'use strict';
 
-export const test = "test de ouf 2";
-export {doSomething, doSomethingElse} from './helpers';
+export {SixAdmin} from './app';
 
-export {default as TinySlider} from 'react-tiny-slider';
+/**
+ * Layout
+ */
+export {SideMenu as Menu} from './layout/side-menu';
+export {Content as Pages} from './layout/content';
+
+export {MenuLink as Link} from './layout/menu-link';
+export {Route as Route} from 'react-router-dom';
+
+/**
+ * Pages
+ */
+export {Page as ResourceEdit} from './components/page';

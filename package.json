@@ -8,7 +8,8 @@
     "clean": "lerna clean",
     "clean:build": "lerna exec -- rimraf lib",
     "release": "lerna publish",
-    "ls": "lerna ls"
+    "ls": "lerna ls",
+    "example-vite-server":  "npm --prefix packages/six-admin-example run dev"
   },
   "author": {
     "name": "Six Design",

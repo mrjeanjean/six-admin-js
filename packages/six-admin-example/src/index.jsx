@@ -1,52 +1,43 @@
-import {doSomethingElse, TinySlider} from 'six-admin-core';
-import ReactDOM from 'react-dom';
+import './styles.css';
+
+import {
+    SixAdmin,
+    Pages,
+    Menu,
+    Link,
+    Route, ResourceEdit
+} from 'six-admin-core';
+
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-doSomethingElse();
-
-const HelloMessage = ({categories})=>{
+const SimpleContent2 = () => {
     return (
-        <div>
-            <TinySlider
-            >
-                {categories.map((category) => (
-                    <div
-                        key={category.id}
-                        style={{ position: "relative" }}
-                    >
-                        <h2 className="slide__title">
-                            <span className="title__line--left"/>
-                            <span className="title__text">{category.name}</span>
-                            <span className="title__line--right"/>
-                        </h2>
-                    </div>
-                ))}
-            </TinySlider>
-        </div>
+        <div>Mon contenu 2</div>
     )
 }
 
-const categories = [
-    {
-        id: 1,
-        name: "categorie name 1"
-    },
-    {
-        id: 2,
-        name: "categorie name 2"
-    },
-    {
-        id: 1,
-        name: "categorie 3 name 3"
-    },
-    {
-        id: 1,
-        name: "categorie 4 name 4"
-    }
-]
+const MainApp = () => {
+
+    return (
+        <SixAdmin>
+            <Menu>
+                <Link to="/" replace>Accueil</Link>
+                <Link to="/content" replace>Contenu</Link>
+                <Link to="/other" replace>Contenu</Link>
+            </Menu>
+
+            <Pages>
+                <ResourceEdit path="/" types="pages" id={1}/>
+                <ResourceEdit path="/other" types="pages" id={4}/>
+                <Route path="/content" exact={true} component={SimpleContent2}/>
+            </Pages>
+        </SixAdmin>
+    )
+}
 
 ReactDOM.render(
-    <HelloMessage categories={categories}/>,
+    <MainApp/>,
     document.getElementById('root')
 );
 
