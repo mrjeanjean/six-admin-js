@@ -1,6 +1,15 @@
 import React from "react";
-import {Section} from "./section";
 import {AddSectionButton} from "./add-section-button";
+import {getSectionType} from "../components/sections/sectionBuilder";
+
+const Section = ({section})=>{
+    const sectionType = getSectionType(section.type);
+    return (
+        <div className="page-section">
+            <sectionType.component section={section}/>
+        </div>
+    )
+}
 
 export const Sections = ({sections = []})=>{
     return (

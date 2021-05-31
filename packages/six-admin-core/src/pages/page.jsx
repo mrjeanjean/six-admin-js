@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {Route} from "../index";
 import api from "../api";
-import {Sections} from "./sections";
+import {PageDefault} from "./page-default";
+import {Route} from "react-router-dom";
 
 const action = (id) => async dispatch => {
     const page = await api.getPage(id);
@@ -13,7 +12,7 @@ const action = (id) => async dispatch => {
     })
 }
 
-export const PageComponent = ({id})=>{
+export const PageComponent = ({id, component:Component})=>{
     const {page} = useSelector(state => state.editedPage);
     const dispatch = useDispatch();
 
@@ -35,17 +34,17 @@ export const PageComponent = ({id})=>{
 
     return (
         <div>
-            <h1>{page.name}</h1>
-            <Sections sections={page.sections}/>
+            <Component page={page}/>
         </div>
 
     )
 }
 
-export const Page = ({id, path}) => {
+export const Page = ({id, path, component = null}) => {
+    component = component ?? PageDefault;
     return (
         <Route path={path} exact={true}>
-            <PageComponent id={id}/>
+            <PageComponent id={id} component={component}/>
         </Route>
     )
 }

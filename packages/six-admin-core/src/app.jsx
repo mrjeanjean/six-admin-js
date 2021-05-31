@@ -1,4 +1,4 @@
-import './styles/core.css';
+import './styles/core.scss';
 
 import React from 'react';
 import {Provider,} from 'react-redux';

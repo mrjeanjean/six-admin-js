@@ -10,6 +10,7 @@ import {
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Page} from "./page";
 
 const SimpleContent2 = () => {
     return (
@@ -29,7 +30,7 @@ const MainApp = () => {
 
             <Pages>
                 <ResourceEdit path="/" types="pages" id={1}/>
-                <ResourceEdit path="/other" types="pages" id={4}/>
+                <ResourceEdit path="/other" types="pages" component={Page} id={4}/>
                 <Route path="/content" exact={true} component={SimpleContent2}/>
             </Pages>
         </SixAdmin>

@@ -1,7 +1,14 @@
-export const addSection = (section, position) => {
+import {getUniqueID} from "../helpers";
+
+export const addSection = (type, position, content = null) => {
     return {
         type: "ADD_SECTION",
-        section: section,
+        section: {
+            id: getUniqueID(),
+            type: type,
+            content: content ?? '', //TODO: need be set with default value
+            position: position
+        },
         position: position
     }
 }

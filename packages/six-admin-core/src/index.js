@@ -14,4 +14,10 @@ export {Route as Route} from 'react-router-dom';
 /**
  * Pages
  */
-export {Page as ResourceEdit} from './components/page';
+export {Page as ResourceEdit} from './pages/page';
+export {PageDefault} from './pages/page-default';
+
+/**
+ * Sections
+ */
+export {Sections} from './pages/sections';

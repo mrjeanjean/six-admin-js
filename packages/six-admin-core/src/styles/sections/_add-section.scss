@@ -1,0 +1,131 @@
+@use "../variables" as *;
+
+.add-section {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 0;
+  margin-top: -1rem;
+  cursor: pointer;
+}
+
+.add-section:after {
+  content: "";
+  display: block;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-image: linear-gradient(
+                  90deg,
+                  var(--color-border),
+                  var(--color-border) 75%,
+                  transparent 75%,
+                  transparent 100%
+  );
+  background-size: 8px 2px;
+}
+
+.add-section__wrapper {
+  position: absolute;
+  left: 50%;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  line-height: 70px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+  background-color: transparent;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: transform 400ms $ease-bounce, opacity 400ms;
+  border-radius: 60px;
+}
+
+.add-section__button {
+  width: 60px;
+  height: 100%;
+  font-size: 50px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-gray);
+  transition: transform 800ms $ease-bounce;
+}
+
+// SECTION TOOLBAR
+//-----------------------------
+.section-toolbar__wrapper{
+  overflow: hidden;
+  transition: max-width 1000ms $ease-bounce;
+  position: relative;
+  left: 30px;
+  max-width: 0;
+}
+
+.section-toolbar{
+  z-index: 1200;
+  display: flex;
+  justify-content: center;
+  background: var(--color-theme);
+  border-radius: 35px 0 0 35px;
+  padding-right: 20px;
+  float: left;
+}
+
+.section-toolbar__button{
+  background-color: transparent;
+  border: none;
+  height: 60px;
+  width: 60px;
+  color: #ffffff;
+}
+
+.section-toolbar__button span{
+  transition: transform 400ms $ease-bounce;
+  display: block;
+}
+
+.section-toolbar__button:hover span{
+  transform: scale(1.4);
+}
+
+// ON MOUSE OVER
+//-----------------------------
+.add-section.on-mouse-over {
+  z-index: 800;
+}
+
+.add-section.on-mouse-over:after {
+  background-image: linear-gradient(
+                  90deg,
+                  var(--color-gray-medium),
+                  var(--color-gray-medium) 75%,
+                  transparent 75%,
+                  transparent 100%
+  );
+}
+
+.add-section.on-mouse-over .add-section__wrapper {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.add-section.on-mouse-over .add-section__button {
+  background-color: var(--color-theme);
+}
+
+// ON TOOLBAR OPEN
+//-----------------------------
+.add-section__wrapper.open .section-toolbar__wrapper{
+  max-width: 600px;
+}
+
+.add-section__wrapper.open .add-section__button{
+  transform: rotate(45deg);
+}
+

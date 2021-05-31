@@ -1,0 +1,14 @@
+// GENERIC FIELDS RULES
+//-----------------------------
+.input-field,
+.textarea-field{
+  border: 2px var(--color-border) solid;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+}
+
+.textarea-field{
+  min-height: 10rem;
+  resize: none;
+}
