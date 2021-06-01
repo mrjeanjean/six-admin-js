@@ -1,0 +1,12 @@
+.button{
+  background-color: var(--color-theme);
+  padding: 1rem 1.5rem;
+  border: none;
+  color: #ffffff;
+}
+
+.buttons-wrapper{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}

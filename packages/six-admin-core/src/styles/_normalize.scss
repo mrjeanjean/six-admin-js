@@ -32,6 +32,10 @@
   font-size: inherit;
 }
 
+.six-admin :where(button, input, textarea)::placeholder{
+  opacity: 0.45;
+}
+
 .six-admin button{
   cursor: pointer;
 }
@@ -39,4 +43,12 @@
 .six-admin input:focus,
 .six-admin textarea:focus{
   outline-color: var(--color-theme);
+}
+
+.six-admin :where(hr){
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  height: 1px;
+  background-color: var(--color-theme);
+  border: none;
 }

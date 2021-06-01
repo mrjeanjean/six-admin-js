@@ -7,6 +7,7 @@ export const TextareaField = ({onChange, ...rest})=>{
 
     return (
         <textarea
+            placeholder="Votre contenu..."
             {...rest}
             onChange={onChangeHandler}
             className="textarea-field"

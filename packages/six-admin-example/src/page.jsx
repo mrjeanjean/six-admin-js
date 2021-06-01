@@ -1,10 +1,11 @@
 import React from 'react';
-import {Sections} from "six-admin-core";
+import {InputField, Sections} from "six-admin-core";
 
-export const Page = ({page})=>{
+export const Page = ({page, setPageAttribute})=>{
     return (
         <div>
-            <h1>{page.name}</h1>
+            <InputField type="text" value={page.title} onChange={value=>setPageAttribute("title", value)}/>
+            <hr/>
             <Sections sections={page.sections}/>
         </div>
     )

@@ -1,20 +1,33 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useContext} from "react";
 import {addSection} from "../store/page-actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {Icon} from "../components/icon";
+import {useSectionTypes} from "../core/admin.hooks";
 
-export const SectionToolbar = ({position})=>{
+export const SectionToolbar = ({position}) => {
     const dispatch = useDispatch();
+    const {getSectionType} = useSectionTypes();
+
+    const allowedSectionTypes = useSelector(state => state.editedPage.page.allowedSectionTypes);
 
     const addSectionHandler = useCallback((type) => {
-        dispatch(addSection(type, position));
+        const sectionType = getSectionType(type);
+        dispatch(addSection(type, position, sectionType.default));
     }, [position]);
 
     return (
         <div className="section-toolbar">
-            <button type="button" className="section-toolbar__button" onClick={()=>addSectionHandler("text")}><span>1</span></button>
-            <button type="button" className="section-toolbar__button" onClick={()=>addSectionHandler("text")}><span>3</span></button>
-            <button type="button" className="section-toolbar__button" onClick={()=>addSectionHandler("text")}><span>4</span></button>
-            <button type="button" className="section-toolbar__button" onClick={()=>addSectionHandler("text")}><span>5</span></button>
+            {allowedSectionTypes && allowedSectionTypes.map(sectionType => {
+                const sectionTypeData = getSectionType(sectionType);
+                return (
+                    <button
+                        key={sectionType}
+                        type="button"
+                        className="section-toolbar__button"
+                        onClick={() => addSectionHandler(sectionType)}
+                    ><span><Icon icon={sectionTypeData.icon}/></span></button>
+                )
+            })}
         </div>
     )
 }

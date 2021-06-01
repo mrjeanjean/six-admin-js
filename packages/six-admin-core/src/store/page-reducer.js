@@ -6,6 +6,12 @@ const pageEditedReducer = (page = {}, action) => {
             return action.page;
         case "UNLOAD_EDITED_PAGE":
             return null;
+        case "EDIT_PAGE":
+        case "INIT_PAGE":
+            return {
+                ...page,
+                [action.attribute]: action.value
+            }
         case "ADD_SECTION":
             const addedSections = [...page.sections];
             const position = action.position ?? addedSections.length;
@@ -44,8 +50,19 @@ const pageEditedReducer = (page = {}, action) => {
 
 const pristineReducer = (pristine = null, action) => {
     switch (action.type){
+        case "LOAD_EDITED_PAGE":
         case "UNLOAD_EDITED_PAGE":
+        case "INIT_PAGE":
+        case "SAVE_RESOURCE_SUCCESS":
+        case "UPDATE_RESOURCE_SUCCESS":
             return true;
+        case "EDIT_PAGE":
+            return (action.silent) ? true : false;
+        case "ADD_SECTION":
+        case "EDIT_SECTION":
+        case "REMOVE_SECTION":
+        case "MOVE_SECTION":
+            return false;
     }
     return pristine;
 };

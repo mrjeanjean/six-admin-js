@@ -8,24 +8,31 @@ import {combineReducers} from "redux";
 import {HashRouter as Router} from "react-router-dom";
 import {initialState} from "./store/initialState";
 import {pageReducer} from "./store/page-reducer";
+import {promptConfirmation} from "./components/prompt-confirmation";
 
-export const SixAdmin = ({state = {}, reducers = {}, children}) => {
+export const AppContext = React.createContext(null);
+
+export const SixAdmin = ({state = {}, reducers = {}, children, adminModel}) => {
     const store = {...initialState, ...state};
+
     const appReducers = {
         editedPage: pageReducer,
         ...reducers
     }
     return (
         <div className="six-admin">
-            <ErrorBoundary>
-                <Provider store={Store(store, combineReducers(appReducers))}>
-                    <Router>
-                        <div className="main-layout">
-                            {children}
-                        </div>
-                    </Router>
-                </Provider>
-            </ErrorBoundary>
+            <AppContext.Provider value={adminModel}>
+                <ErrorBoundary>
+                    <Provider store={Store(store, combineReducers(appReducers))}>
+                        <Router getUserConfirmation={promptConfirmation}>
+                            <div className="main-layout">
+                                {children}
+                            </div>
+                        </Router>
+                    </Provider>
+                    <div className="portal--modal"/>
+                </ErrorBoundary>
+            </AppContext.Provider>
         </div>
     )
 }

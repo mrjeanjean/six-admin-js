@@ -1,6 +1,7 @@
 'use strict';
 
 export {SixAdmin} from './app';
+export {AdminModel} from './core/admin-model';
 
 /**
  * Layout
@@ -14,10 +15,15 @@ export {Route as Route} from 'react-router-dom';
 /**
  * Pages
  */
-export {Page as ResourceEdit} from './pages/page';
+export {ResourceEdit} from './pages/page';
 export {PageDefault} from './pages/page-default';
 
 /**
  * Sections
  */
 export {Sections} from './pages/sections';
+
+/**
+ * Fields
+ */
+export {InputField} from './components/fields/input.field';

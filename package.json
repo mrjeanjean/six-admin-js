@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Vue JS Monorepo with Lerna and Vite",
   "scripts": {
+    "launch-vite-server":  "npm --prefix packages/six-admin-example run dev",
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test:ci",
     "clean": "lerna clean",
     "clean:build": "lerna exec -- rimraf lib",
     "release": "lerna publish",
-    "ls": "lerna ls",
-    "launch-vite-server":  "npm --prefix packages/six-admin-example run dev"
+    "ls": "lerna ls"
   },
   "author": {
     "name": "Six Design",

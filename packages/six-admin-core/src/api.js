@@ -3,7 +3,7 @@ class Api{
         return new Promise((resolve)=>{
             setTimeout(()=>{
                 resolve( {
-                    name: "Ma Page",
+                    title: "Ma Page",
                     id: pageID,
                     sections: [
                         {

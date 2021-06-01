@@ -35,7 +35,7 @@
   padding: 0;
   margin: 0;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   background-color: transparent;
   top: 50%;
   transform: translate(-50%, -50%) scale(0.5);
@@ -46,7 +46,7 @@
 .add-section__button {
   width: 60px;
   height: 100%;
-  font-size: 50px;
+  font-size: 25px;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -54,6 +54,7 @@
   position: relative;
   border-radius: 50%;
   border: none;
+  transform: rotate(-45deg);
   background-color: var(--color-gray);
   transition: transform 800ms $ease-bounce;
 }
@@ -75,6 +76,7 @@
   background: var(--color-theme);
   border-radius: 35px 0 0 35px;
   padding-right: 20px;
+  padding-left: 10px;
   float: left;
 }
 
@@ -92,7 +94,7 @@
 }
 
 .section-toolbar__button:hover span{
-  transform: scale(1.4);
+  transform: scale(0.8);
 }
 
 // ON MOUSE OVER
@@ -126,6 +128,6 @@
 }
 
 .add-section__wrapper.open .add-section__button{
-  transform: rotate(45deg);
+  transform: rotate(90deg);
 }
 

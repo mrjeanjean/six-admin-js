@@ -27,3 +27,11 @@ export const removeSection = (sectionID) => {
         sectionID: sectionID,
     }
 }
+
+export function initPage(attribute, value) {
+    return {
+        type: "INIT_PAGE",
+        attribute: attribute,
+        value: value
+    }
+}
