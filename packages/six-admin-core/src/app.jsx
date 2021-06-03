@@ -1,27 +1,39 @@
 import './styles/core.scss';
 
 import React from 'react';
-import {Provider,} from 'react-redux';
+import {Provider, useSelector,} from 'react-redux';
 import Store from "./store/store";
 import {ErrorBoundary} from "./error-boundary";
 import {combineReducers} from "redux";
 import {HashRouter as Router} from "react-router-dom";
-import {initialState} from "./store/initialState";
+import {initialState} from "./store/initial-state";
 import {pageReducer} from "./store/page-reducer";
 import {promptConfirmation} from "./components/prompt-confirmation";
+import {AdminContext} from './core/admin.context';
+import {loadingReducer} from "./store/generic-reducer";
+import {Loader} from "./components/loader";
 
-export const AppContext = React.createContext(null);
+
+const RootLoader = ()=>{
+    const isLoading = useSelector(state=>state.loading);
+
+    return (
+        <Loader isLoading={isLoading}/>
+    )
+}
 
 export const SixAdmin = ({state = {}, reducers = {}, children, adminModel}) => {
     const store = {...initialState, ...state};
 
     const appReducers = {
         editedPage: pageReducer,
+        loading: loadingReducer,
         ...reducers
     }
+
     return (
         <div className="six-admin">
-            <AppContext.Provider value={adminModel}>
+            <AdminContext.Provider value={adminModel}>
                 <ErrorBoundary>
                     <Provider store={Store(store, combineReducers(appReducers))}>
                         <Router getUserConfirmation={promptConfirmation}>
@@ -29,10 +41,11 @@ export const SixAdmin = ({state = {}, reducers = {}, children, adminModel}) => {
                                 {children}
                             </div>
                         </Router>
+                        <RootLoader/>
                     </Provider>
                     <div className="portal--modal"/>
                 </ErrorBoundary>
-            </AppContext.Provider>
+            </AdminContext.Provider>
         </div>
     )
 }

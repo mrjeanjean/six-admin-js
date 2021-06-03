@@ -1,11 +1,11 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useContext, useEffect, useRef, useState} from "react";
 import {SectionToolbar} from "./section-toolbar";
-import {useSelector} from "react-redux";
 import {Icon} from "../components/icon";
+import {PageContext} from "../core/admin.context";
 
 export const AddSectionButton = ({position}) => {
     const [isToolbarOpen, setToolbarOpen] = useState(false);
-    const allowedSectionTypes = useSelector(state=>state.editedPage.page.allowedSectionTypes);
+    const {allowedSectionTypes} = useContext(PageContext);
     const buttonRef = useRef(null);
 
     useEffect(() => {

@@ -1,13 +1,13 @@
 'use strict';
 
 export {SixAdmin} from './app';
-export {AdminModel} from './core/admin-model';
+export {AdminBuilder} from './core/admin-builder';
 
 /**
  * Layout
  */
 export {SideMenu as Menu} from './layout/side-menu';
-export {Content as Pages} from './layout/content';
+export {Content as MainContent} from './layout/content';
 
 export {MenuLink as Link} from './layout/menu-link';
 export {Route as Route} from 'react-router-dom';

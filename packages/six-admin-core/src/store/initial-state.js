@@ -3,5 +3,6 @@ export const initialState = {
         page: null,
         pristine: true,
         editedSection: null,
-    }
+    },
+    loading: false
 };

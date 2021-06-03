@@ -21,6 +21,14 @@ class Api{
             }, 2000)
         })
     }
+
+    update(resource){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve( resource)
+            }, 2000)
+        })
+    }
 }
 
 export default new Api();

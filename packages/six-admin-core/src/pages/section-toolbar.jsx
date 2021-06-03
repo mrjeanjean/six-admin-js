@@ -1,14 +1,14 @@
 import React, {useCallback, useContext} from "react";
 import {addSection} from "../store/page-actions";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Icon} from "../components/icon";
 import {useSectionTypes} from "../core/admin.hooks";
+import {PageContext} from "../core/admin.context";
 
 export const SectionToolbar = ({position}) => {
     const dispatch = useDispatch();
     const {getSectionType} = useSectionTypes();
-
-    const allowedSectionTypes = useSelector(state => state.editedPage.page.allowedSectionTypes);
+    const {allowedSectionTypes} = useContext(PageContext);
 
     const addSectionHandler = useCallback((type) => {
         const sectionType = getSectionType(type);

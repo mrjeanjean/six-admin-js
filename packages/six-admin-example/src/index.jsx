@@ -1,11 +1,10 @@
 import './styles.css';
 
 import {
-    SixAdmin,
-    Pages,
+    MainContent,
     Menu,
     Link,
-    ResourceEdit, AdminModel, InputField
+    ResourceEdit, AdminBuilder, InputField
 } from 'six-admin-core';
 
 import React from 'react';
@@ -21,40 +20,44 @@ const SpecialSection = ({section, setContent})=>{
 }
 
 const MainApp = () => {
-    const adminModel = new AdminModel();
+    const adminBuilder = new AdminBuilder();
 
-    adminModel.addSectionType("special", {
+    // ADD SECTION TYPES
+    adminBuilder.addSectionType("special", {
         component: SpecialSection,
         name: "Spécial",
         icon: "heart",
         default: "♥"
     });
 
-    adminModel.addSectionType("special2", {
+    adminBuilder.addSectionType("special2", {
         component: SpecialSection,
         name: "Spécial",
         icon: "heart",
         default: "✌"
     });
 
+    // ADD API
+    const Admin = adminBuilder.buildComponent();
+
     return (
-        <SixAdmin adminModel={adminModel}>
+        <Admin state={{test:2}}>
             <Menu>
                 <Link to="/" replace>Accueil</Link>
                 <Link to="/other" replace>Contenu</Link>
             </Menu>
 
-            <Pages>
-                <ResourceEdit path="/" types="pages" id={1}/>
+            <MainContent>
+                <ResourceEdit path="/" type="page" id={1}/>
                 <ResourceEdit
                     path="/other"
-                    types="pages"
+                    type="page"
                     component={Page}
                     id={4}
                     allowedSectionTypes={['text', 'heading', 'special', 'special2']}
                 />
-            </Pages>
-        </SixAdmin>
+            </MainContent>
+        </Admin>
     )
 }
 

@@ -6,7 +6,7 @@ export const addSection = (type, position, content = null) => {
         section: {
             id: getUniqueID(),
             type: type,
-            content: content ?? '', //TODO: need be set with default value
+            content: content ?? '',
             position: position
         },
         position: position
@@ -28,10 +28,3 @@ export const removeSection = (sectionID) => {
     }
 }
 
-export function initPage(attribute, value) {
-    return {
-        type: "INIT_PAGE",
-        attribute: attribute,
-        value: value
-    }
-}

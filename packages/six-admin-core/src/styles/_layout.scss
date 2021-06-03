@@ -7,7 +7,11 @@
 }
 
 .main-content{
-  padding: 2rem;
+  padding: 2.5rem;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 300px;
+  grid-column-gap: 2.5rem;
 }
 
 .nav--side-menu {
@@ -52,4 +56,19 @@
   width: 30px;
   background-color: var(--color-border);
   height: 100%;
+}
+
+// PAGE
+//-----------------------------
+.page-sidebar{
+  background-color: var(--color-gray-light);
+  margin-top: -2.5rem;
+  margin-right: -2.5rem;
+  margin-bottom: -2.5rem;
+  padding: 2.5rem;
+}
+
+.page-sidebar__inner{
+  position: sticky;
+  top: 0;
 }
